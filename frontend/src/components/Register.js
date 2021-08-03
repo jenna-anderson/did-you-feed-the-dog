@@ -7,7 +7,7 @@ const initialFormValues = {
     password:''
 }
 
-const Login = () => {
+const Register = () => {
     const [formValues, setFormValues] = useState(initialFormValues)
 
     const handleChange = (e) => {
@@ -33,6 +33,9 @@ const Login = () => {
             >
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" name = "email"/>
+                <Form.Text className="text-muted">
+                    We&apos;ll never share your email with anyone else.
+                </Form.Text>
             </Form.Group>
 
             <Form.Group 
@@ -45,10 +48,10 @@ const Login = () => {
                 <Form.Control type="password" placeholder="Password" name="password"/>
             </Form.Group>
             <Button variant="primary" type="submit">
-                Login
+                Register
             </Button>
         </Form>
     )
 }
 
-export default Login
+export default Register
