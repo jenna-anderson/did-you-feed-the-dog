@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <header className="App-header">
+        <h1>Did you feed the dog?</h1>
       </header>
         <Home/>
     </div>
