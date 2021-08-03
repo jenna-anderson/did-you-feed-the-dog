@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import DogCard from './DogCard'
+import Login from './Login'
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
     return(
         <div>
             <DogCard/>
+            <Login/>
         </div>
     )
 }
