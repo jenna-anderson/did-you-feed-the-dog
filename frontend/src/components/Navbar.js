@@ -1,15 +1,37 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Route, Link, Switch } from 'react-router-dom'
+import Register from './Register'
+import Home from './Home'
+import Login from './Login'
 
 const Navbar = () => {
     return(
-        <nav>
-            <Link to='/'>Home</Link>
-            <Link to='/login'>Login</Link>
-            <Link to='/register'>Register</Link>
-        </nav>
+        <div>
+            <nav>
+                <Link to='/'>Home</Link>
+                <Link to='/login'>Login</Link>
+                <Link to='/register'>Register</Link>
+            </nav>
 
-        // <Route />
+            <Switch>
+
+                <Route path='/register'>
+                    <Register/>
+                </Route>
+
+                <Route path='/login'>
+                    <Login/>
+                </Route>
+
+                <Route path='/'>
+                    <Home/>
+                    <h2>home page</h2>
+                </Route>
+
+            </Switch>
+
+
+        </div>
     )
 }
 

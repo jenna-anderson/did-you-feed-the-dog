@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import DogCard from './DogCard'
-import Login from './Login'
-import Register from './Register'
 
 const Home = () => {
     useEffect(() => {
@@ -13,8 +11,6 @@ const Home = () => {
     return(
         <div>
             <DogCard/>
-            <Login/>
-            <Register/>
         </div>
     )
 }
