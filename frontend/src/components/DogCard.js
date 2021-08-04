@@ -1,19 +1,22 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+import ListGroup from 'react-bootstrap/ListGroup'
+import ListGroupItem from 'react-bootstrap/ListGroupItem'
+import image from '../images/Kali.jpeg'
 
 const DogCard = () => {
     return(
         <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Img variant="top" src={image} />
             <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the cards content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Card.Title>[Dog Name]</Card.Title>
             </Card.Body>
+            <ListGroup className="list-group-flush">
+                <ListGroupItem>Last Fed: </ListGroupItem>
+                <ListGroupItem>Breed: </ListGroupItem>
+                <ListGroupItem>Age: </ListGroupItem>
+                <ListGroupItem>Weight: </ListGroupItem>
+            </ListGroup>
         </Card>
     )
 }
