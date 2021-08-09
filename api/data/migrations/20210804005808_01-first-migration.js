@@ -12,9 +12,21 @@ exports.up = async function(knex) {
         dogs.string('dog_breed', 200)
         dogs.date('dog_birthday', 200)
     })
+    .createTable('weights', (weights) => {
+      weights.increments('weight_id')
+      weights.integer('dog_id')
+        .unsigned()
+        .references('dog_id')
+        .inTable('dogs')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE')
+      weights.float('dog_weight')
+      weights.date('date')
+    })
   };
   
   exports.down = async function(knex) {
+    await knex.schema.dropTableIfExists('weights')
     await knex.schema.dropTableIfExists('dogs')
     await knex.schema.dropTableIfExists('users')
   };

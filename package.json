@@ -8,7 +8,7 @@
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
     "migrateh": "heroku run knex migrate:latest -a did-you-feed-the-dog",
-    "rollbackj": "heroku run knex migrate:rollback -a did-you-feed-the-dog",
+    "rollbackh": "heroku run knex migrate:rollback -a did-you-feed-the-dog",
     "databaseh": "heroku pg:psql -a did-you-feed-the-dog",
     "seedh": "heroku run knex seed:run -a did-you-feed-the-dog",
     "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand",
