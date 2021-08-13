@@ -26,6 +26,8 @@ exports.up = async function(knex) {
     .createTable('feedings', (feedings) => {
       feedings.increments('feeding_id')
       feedings.timestamps(false, true)
+      feedings.date('feeding_date')
+      feedings.time('feeding_time')
       feedings.integer('dog_id')
         .unsigned()
         .references('dog_id')
