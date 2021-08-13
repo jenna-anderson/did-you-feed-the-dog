@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import axios from 'axios'
 
 const initialFormValues = {
     email: '',
@@ -18,13 +19,16 @@ const Register = () => {
         })
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        axios.post('https://did-you-feed-the-dog.herokuapp.com/api/auth/register', formValues)
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err))
         setFormValues(initialFormValues)
     }
 
-
     return(
-        <Form onSubmit={handleSubmit}>
+        <Form>
             <Form.Group 
                 className="mb-3" 
                 controlId="formBasicEmail" 
@@ -47,7 +51,7 @@ const Register = () => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" name="password"/>
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" onClick={handleSubmit}>
                 Register
             </Button>
         </Form>

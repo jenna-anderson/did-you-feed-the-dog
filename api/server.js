@@ -6,6 +6,10 @@ const session = require('express-session')
 const store = require('connect-session-knex')(session)
 
 const server = express()
+server.use(express.json())
+server.use(helmet())
+server.use(cors())
+
 const authRouter = require('./auth/auth-router')
 
 server.use(session({
@@ -27,10 +31,6 @@ server.use(session({
         clearInterval: 1000 * 60 * 60
     })
 }))
-
-server.use(express.json())
-server.use(helmet())
-server.use(cors())
 
 server.use('/api/auth', authRouter)
 
