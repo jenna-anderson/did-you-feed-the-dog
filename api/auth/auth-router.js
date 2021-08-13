@@ -9,8 +9,12 @@ router.post('/register', async (req, res, next) => {
         email: email,
         password: hash
     }
-    const dbUser = await Users.add(newUser)
-    res.status(201).json(dbUser)
+    try{
+        const dbUser = await Users.add(newUser)
+        res.status(201).json(dbUser)
+    } catch(err) {
+        next(err)
+    }
 })
 
 router.post('/login', async (req, res, next) => {
@@ -30,8 +34,18 @@ router.post('/login', async (req, res, next) => {
     }
 })
 
-router.get('/logout', (req, res, next) => {
-    console.log('logout wired')
-})
+router.get('/logout', (req, res) => {
+    if (req.session && req.session.user) {
+        req.session.destroy(err => {
+          if (err) {
+            res.json({ message: 'error logging out' });
+          } else {
+            res.json({ message: 'logged out' });
+          }
+        });
+      } else {
+        res.json({ message: 'no session' });
+      }
+    });
 
 module.exports = router
