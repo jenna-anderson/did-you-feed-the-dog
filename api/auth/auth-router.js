@@ -13,8 +13,21 @@ router.post('/register', async (req, res, next) => {
     res.status(201).json(dbUser)
 })
 
-router.post('/login', (req, res, next) => {
-    console.log('login wired')
+router.post('/login', async (req, res, next) => {
+    const { email, password } = req.body
+    const [user] = await Users.findBy(email)
+    if (user && bcrypt.compareSync(password, user.password)) {
+        req.session.user = user
+        res.json({
+            status: 200,
+            message: `Welcome ${email}`
+        })
+    } else {
+        next({
+            status: 401,
+            message: 'Invalid credentials'
+        })
+    }
 })
 
 router.get('/logout', (req, res, next) => {

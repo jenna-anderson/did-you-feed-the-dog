@@ -5,6 +5,15 @@ async function add(user) {
     return newUserObject
 }
 
+async function findBy(filter) {
+    const filteredUsers = await db
+        .select('user_id', 'email', 'password')
+        .from('users')
+        .where('email', filter)
+    return filteredUsers
+}
+
 module.exports = {
     add,
+    findBy
 }
