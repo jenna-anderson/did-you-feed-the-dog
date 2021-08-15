@@ -11,6 +11,7 @@ server.use(helmet())
 server.use(cors())
 
 const authRouter = require('./auth/auth-router')
+const dogsRouter = require('./dogs/dogs-router')
 
 server.use(session({
     name: 'watermelon',
@@ -33,6 +34,7 @@ server.use(session({
 }))
 
 server.use('/api/auth', authRouter)
+server.use('/api/dogs', dogsRouter)
 
 server.get('/api', (req, res) => {
     res.json({message: 'hello world'})
