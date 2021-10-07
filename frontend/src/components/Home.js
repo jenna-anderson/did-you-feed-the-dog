@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import DogCard from './DogCard'
+import DogForm from './DogForm'
 
 const Home = () => {
     useEffect(() => {
@@ -11,6 +12,7 @@ const Home = () => {
     return(
         <div>
             <DogCard/>
+            <DogForm/>
         </div>
     )
 }
