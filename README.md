@@ -5,7 +5,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/jenna-anderson/did-you-feed-the-dog">
-    <img src="frontend/src/images/icons8-empty-dog-bowl-50" alt="Logo" width="80" height="80">
+    <img src="/Users/jennaanderson/Desktop/lambdaProjects/did-you-feed-the-dog/frontend/src/images/icons8-empty-dog-bowl-50.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Did You Feed the Dog?</h3>
